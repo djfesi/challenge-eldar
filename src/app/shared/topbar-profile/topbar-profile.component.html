@@ -1,0 +1,15 @@
+<p-splitButton severity="contrast" [model]="menuItems">
+  <ng-template pTemplate="content">
+    <p-avatar
+      image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+      styleClass="mr-2"
+      size="large"
+      shape="circle"
+    ></p-avatar>
+    <span class="flex"
+      ><span class="profile-name text-blue-50">
+        {{ email }}
+      </span>
+    </span>
+  </ng-template>
+</p-splitButton>

@@ -1,0 +1,74 @@
+<p-card header="{{ isEditing ? 'Editar Post' : 'Crear Post' }}">
+  <div class="grid">
+    <div class="col-12 md:col-4 lg:col-3">
+      <img
+        src="assets/post.webp"
+        alt="Visualizar publicación"
+        class="img-responsive"
+        style="max-width: 100%; height: auto; object-fit: cover"
+      />
+    </div>
+
+    <div class="col-12 md:col-8 lg:col-9">
+      <p-divider align="left" type="solid">
+        <b class="text-400 font-italic">Información de la publicación</b>
+      </p-divider>
+
+      <div class="post-info">
+        <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+          <div class="grid">
+            <div class="col-12 mt-2">
+              <p-floatLabel>
+                <input
+                  pInputText
+                  id="title"
+                  class="w-full"
+                  formControlName="title"
+                  placeholder="Ingrese el título del post"
+                />
+                <label for="title">Título</label>
+              </p-floatLabel>
+              @if(postForm.get('title')?.invalid &&
+              postForm.get('title')?.touched){
+              <small class="text-red-500"> El título es requerido. </small>
+              }
+            </div>
+            <div class="col-12 mt-2">
+              <textarea
+                id="body"
+                class="w-full"
+                formControlName="body"
+                rows="5"
+                cols="30"
+                placeholder="Ingrese el contenido"
+                pInputTextarea
+              >
+              </textarea>
+
+              @if( postForm.get('body')?.invalid &&
+              postForm.get('body')?.touched){
+              <small class="text-red-500"> El contenido es requerido. </small>
+              }
+            </div>
+          </div>
+
+          <div class="flex justify-content-end mt-3">
+            <button
+              pButton
+              label="Cancelar"
+              (click)="goBack()"
+              class="p-button-rounded mt-3 text-blue-50"
+            ></button>
+            <button
+              pButton
+              [label]="isEditing ? 'Editar' : 'Guardar'"
+              type="submit"
+              [disabled]="postForm.invalid || (isEditing && postForm.pristine)"
+              class="p-button-rounded mt-3 ml-1 text-blue-50"
+            ></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</p-card>

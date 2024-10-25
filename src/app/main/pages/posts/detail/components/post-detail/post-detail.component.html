@@ -1,0 +1,35 @@
+<div class="grid">
+  <div class="col-12 md:col-4 lg:col-3">
+    <img
+      src="assets/post.webp"
+      alt="Visualizar publicación"
+      class="img-responsive"
+      style="max-width: 100%; height: auto; object-fit: cover"
+    />
+  </div>
+
+  <div class="col-12 md:col-8 lg:col-9">
+    <p-divider align="left" type="solid">
+      <b class="text-400 font-italic">Datos del creador:</b>
+    </p-divider>
+
+    @if(user){
+    <div class="text-400">
+      <p><strong>Nombre:</strong> {{ user?.name ?? "-" }}</p>
+      <p><strong>Apellido:</strong> {{ user?.username ?? "-" }}</p>
+      <p><strong>Email:</strong> {{ user?.email ?? "-" }}</p>
+    </div>
+    } @else {
+    <p class="text-400 text-center">No se encontraron datos del creador.</p>
+    }
+
+    <p-divider align="left" type="solid">
+      <b class="text-400 font-italic">Publicación</b>
+    </p-divider>
+
+    <div class="post-info">
+      <h2>{{ post?.title ?? "-" }}</h2>
+      <p>{{ post?.body ?? "-" }}</p>
+    </div>
+  </div>
+</div>

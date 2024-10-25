@@ -1,0 +1,42 @@
+<form
+  [formGroup]="loginForm"
+  (ngSubmit)="onSubmit()"
+  class="p-fluid"
+  *ngIf="!fadeOut; else empty"
+>
+  <h3>Bienvenido</h3>
+  <div class="p-field mt-5">
+    <p-floatLabel>
+      <input
+        id="username"
+        type="email"
+        pInputText
+        formControlName="email"
+        placeholder="Enter your email"
+      />
+      <label for="username">Correo electrónico</label>
+    </p-floatLabel>
+  </div>
+  <div class="p-field mt-2">
+    <p-floatLabel>
+      <p-password
+        [feedback]="false"
+        [toggleMask]="true"
+        formControlName="password"
+        placeholder="Enter your password"
+        styleClass="mt-5"
+      />
+      <label for="password">Contraseña</label>
+    </p-floatLabel>
+  </div>
+  <button
+    type="submit"
+    pButton
+    label="Iniciar sesión"
+    [loading]="loading"
+    [disabled]="!loginForm.valid || loading"
+    class="p-button-rounded mt-3 text-blue-50"
+  ></button>
+</form>
+
+<ng-template #empty></ng-template>

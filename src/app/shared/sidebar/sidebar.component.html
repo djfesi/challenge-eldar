@@ -1,0 +1,23 @@
+<div class="layout-menu-container h-full">
+  <ul class="layout-menu">
+    @for (item of menuOptions; track item) {
+    <li
+      class="flex flex-column align-items-center justify-content-center cursor-pointer mt-3"
+      [routerLink]="item.route"
+    >
+      <i [ngClass]="item.icon + ' mb-1 text-4xl text-blue-50'"></i>
+      <div
+        class="layout-menuitem-root-text text-xs text-blue-50 truncated"
+        [title]="item.label"
+      >
+        {{ item.label }}
+      </div>
+    </li>
+    }
+  </ul>
+</div>
+<img
+  width="50px"
+  class="absolute min-logo"
+  src="assets/logos/icon.webp"
+/>

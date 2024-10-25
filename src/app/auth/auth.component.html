@@ -1,0 +1,24 @@
+<div class="body">
+  <div class="background-overlay">
+    <img
+      src="assets/bg/background-auth.png"
+      class="background-image no-select"
+      [draggable]="false"
+    />
+  </div>
+  <div class="content">
+    <img
+      class="no-select logo-eldar"
+      [draggable]="false"
+      src="assets/logos/logo.png"
+      width="250rem"
+    />
+    <p class="no-select text-blue-50 text-2xl">Challenge Angular</p>
+  </div>
+  <div class="footer">
+    <p class="text-blue-50 text-xs">Desarrollador: Silva Federico</p>
+  </div>
+  <div class="card" [@expandFade]="animationState">
+    <router-outlet (activate)="onActivate($event)" />
+  </div>
+</div>

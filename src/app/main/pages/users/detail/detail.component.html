@@ -1,0 +1,17 @@
+<p-card>
+  @if(loading){
+  <component-skeleton-user-detail />
+  } @else if(user && !loading){
+  <component-user-detail [user]="user" />
+  } @else {
+  <shared-data-not-found label="resultados" />
+  }
+  <div class="flex justify-content-end mt-4">
+    <button
+      pButton
+      label="Volver"
+      (click)="goBack()"
+      class="p-button-rounded mt-3 text-blue-50"
+    ></button>
+  </div>
+</p-card>

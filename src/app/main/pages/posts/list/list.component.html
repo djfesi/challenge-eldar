@@ -1,0 +1,88 @@
+<p-card>
+  <p-table
+    [value]="posts"
+    [loading]="loading"
+    [tableStyle]="{ 'min-width': '50rem' }"
+  >
+    <ng-template pTemplate="caption">
+      <div class="flex justify-content-between">
+        Publicación @if(userRole === 'admin'){
+        <p-button
+          icon="pi pi-plus"
+          title="Nueva publicación"
+          (onClick)="newPost()"
+        />}
+      </div>
+      <div class="col-12 md:col-6 flex p-0 m-0 mt-1">
+        <p-iconField iconPosition="left" class="w-full relative">
+          <p-inputIcon styleClass="pi pi-search" />
+          <input
+            class="w-full"
+            type="text"
+            pInputText
+            id="searchInput"
+            placeholder="Buscar por título o descripción"
+            (input)="onSearch($event)"
+          />
+        </p-iconField>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th>Título</th>
+        <th class="text-center">Descripción</th>
+        <th class="text-center">Acciones</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="loadingbody">
+      @for (_ of [].constructor(10); track _; let index = $index) {
+      <tr style="height: 46px">
+        @for (cols of [].constructor(3); track cols; let columns = $index) {
+        <td><p-skeleton styleClass="w-full" /></td>
+        }
+      </tr>
+      }
+    </ng-template>
+    <ng-template pTemplate="body" let-post let-columns="columns">
+      <tr>
+        <td class="truncated font-semibold">
+          {{ post.title }}
+        </td>
+        <td class="text-center truncated-description">
+          {{ post.body }}
+        </td>
+        <td class="text-center">
+          <i
+            class="pi pi-eye cursor-pointer m-1"
+            (click)="onDetailPost(post.id)"
+          ></i>
+          @if(userRole === 'admin'){
+          <i
+            class="pi pi-pencil cursor-pointer m-1"
+            (click)="onUpdatePost(post.id)"
+          ></i>
+          <i
+            class="pi pi-trash cursor-pointer m-1"
+            (click)="onDeletePost(post.id)"
+          ></i>
+          }
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="3">
+          <shared-data-not-found label="resultados" />
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  @if(posts.length){
+  <p-paginator
+    [first]="first"
+    [rows]="itemsPerPage"
+    [totalRecords]="totalRecords"
+    (onPageChange)="onPageChange($event)"
+  ></p-paginator>
+  }
+</p-card>

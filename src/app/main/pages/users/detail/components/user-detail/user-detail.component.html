@@ -1,0 +1,37 @@
+<div class="grid">
+  <div
+    class="col-12 md:col-4 lg:col-3 flex justify-content-center align-items-center"
+  >
+    <img
+      src="assets/profile.webp"
+      alt="Visualizar perfil de usuario"
+      class="img-responsive"
+    />
+  </div>
+
+  <div class="col-12 md:col-8 lg:col-9">
+    <p-divider align="left" type="solid">
+      <b class="text-400 font-italic">Datos del usuario:</b>
+    </p-divider>
+
+    <div class="text-400">
+      <p><strong>Nombre:</strong> {{ user?.name ?? "-" }}</p>
+      <p><strong>Usuario:</strong> {{ user?.username ?? "-" }}</p>
+      <p><strong>Correo electrónico:</strong> {{ user?.email ?? "-" }}</p>
+      <p><strong>Teléfono:</strong> {{ user?.phone ?? "-" }}</p>
+
+      <p-divider align="left" type="solid">
+        <b class="text-400 font-italic">Dirección:</b>
+      </p-divider>
+      <p><strong>Calle:</strong> {{ user?.address?.street ?? "-" }}</p>
+      <p><strong>Número:</strong> {{ user?.address?.suite ?? "-" }}</p>
+      <p><strong>Ciudad:</strong> {{ user?.address?.city ?? "-" }}</p>
+      <p><strong>Código postal:</strong> {{ user?.address?.zipcode ?? "-" }}</p>
+
+      <p-divider align="left" type="solid">
+        <b class="text-400 font-italic">Compañía:</b>
+      </p-divider>
+      <p><strong>Razón social:</strong> {{ user?.company?.name ?? "-" }}</p>
+    </div>
+  </div>
+</div>

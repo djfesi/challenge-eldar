@@ -1,0 +1,56 @@
+.layout-topbar {
+  height: 5rem;
+  padding: 0 2rem 0 1rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  background-color: #1a1a19;
+  justify-content: space-between;
+}
+
+.topbar-profile {
+  border-radius: var(--border-radius);
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  max-height: 4rem;
+}
+
+.profile {
+  position: absolute;
+  right: 0px;
+}
+
+@media screen and (max-width: 750px) {
+  .logo {
+    max-height: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  :host ::ng-deep {
+    .p-menubar {
+      padding: 0.5rem;
+      background-color: #1a1a19;
+      border: none;
+      color: #4b5563;
+      border-radius: 0px;
+      height: 4rem;
+    }
+
+    .p-menubar-start {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

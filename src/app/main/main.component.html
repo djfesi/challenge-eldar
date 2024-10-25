@@ -1,0 +1,20 @@
+<div class="layout-container">
+  <div class="background-overlay">
+    <img
+      src="assets/bg/background-auth.png"
+      class="background-image no-select"
+      [draggable]="false"
+    />
+  </div>
+  <shared-topbar class="fadein animation-duration-1000"></shared-topbar>
+  <div class="sidebar fadein animation-duration-800 relative">
+    <div class="layout-sidebar">
+      <shared-sidebar />
+    </div>
+  </div>
+  <div class="layout-content-wrapper">
+    <div class="layout-content">
+      <router-outlet />
+    </div>
+  </div>
+</div>

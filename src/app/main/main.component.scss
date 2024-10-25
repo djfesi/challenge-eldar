@@ -1,0 +1,92 @@
+.layout-container {
+  background: #1a1a19;
+  min-height: 100vh;
+  position: relative;
+}
+
+.layout-content-wrapper {
+  padding-top: 5rem;
+  margin-left: 5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.layout-content {
+  border-top: 1px solid var(--surface-border);
+  overflow: auto;
+  height: calc(100vh - 5rem);
+  padding: 2rem;
+  background-color: var(--surface-ground);
+  border-top-left-radius: 30px;
+  box-shadow: inset 0 3px 4px #0000001a;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  pointer-events: none;
+}
+
+.background-image {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0.1;
+}
+
+.sidebar {
+  position: fixed;
+  background-color: linear-gradient(
+    360deg,
+    var(--primary-color-800),
+    var(--primary-color-600),
+    var(--primary-color-400),
+    var(--primary-color-200),
+    var(--primary-color-100),
+    var(--primary-color),
+    var(--primary-color)
+  );
+  width: 5rem;
+  height: 100%;
+  z-index: 5;
+}
+
+.layout-sidebar {
+  position: fixed;
+  width: 5rem;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 5rem);
+  left: 0;
+  top: 8rem;
+  -webkit-user-select: none;
+  user-select: none;
+  background: var(--v-body-bg);
+  z-index: 999;
+}
+
+@media screen and (min-width: 992px) {
+  .layout-container.layout-slim .layout-sidebar {
+    width: 5rem;
+    overflow: visible;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .layout-content-wrapper {
+    padding-top: 0rem !important;
+    margin-left: 0rem !important;
+  }
+
+  .layout-content {
+    border-top-left-radius: 0px;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}

@@ -1,0 +1,42 @@
+:host ::ng-deep {
+  .p-button {
+    background-color: transparent !important;
+    color: bvar(--blue-50) !important;
+    border: none !important;
+  }
+
+  .p-button:focus {
+    box-shadow: none;
+  }
+
+  .p-splitbutton .p-splitbutton-defaultbutton,
+  .p-splitbutton.p-button-rounded > .p-splitbutton-defaultbutton.p-button,
+  .p-splitbutton.p-button-outlined > .p-splitbutton-defaultbutton.p-button {
+    margin-right: 0px;
+    padding-right: 0px;
+  }
+
+  .p-icon{
+    color: white;
+  }
+}
+
+@media (max-width: 767px) {
+  span {
+    display: none;
+  }
+
+  :host ::ng-deep {
+    .p-button.p-button-icon-only {
+      width: auto;
+      padding: 0 0;
+    }
+
+    .p-splitbutton .p-splitbutton-defaultbutton,
+    .p-splitbutton.p-button-rounded > .p-splitbutton-defaultbutton.p-button,
+    .p-splitbutton.p-button-outlined > .p-splitbutton-defaultbutton.p-button {
+      margin: 0px;
+      padding: 0px;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+:host ::ng-deep {
+  .p-float-label input:focus ~ label,
+  .p-float-label input.p-filled ~ label,
+  .p-float-label textarea:focus ~ label,
+  .p-float-label textarea.p-filled ~ label,
+  .p-float-label .p-inputwrapper-focus ~ label,
+  .p-float-label .p-inputwrapper-filled ~ label {
+    top: -0.55rem;
+  }
+}
+
+body {
+  width: 80%;
+}
+
+.col-6 a {
+  text-decoration: none;
+}
+
+:host ::ng-deep {
+  .p-inputtext:enabled:focus {
+    box-shadow: none;
+  }
+
+  .p-inputtext:enabled:focus {
+    border-color: var(--primary-color);
+  }
+
+  p-password.ng-invalid.ng-dirty > .p-password > .p-inputtext {
+    border-color: #e24c4c !important;
+  }
+
+  .p-inputtext:enabled:hover {
+    border-color: var(--primary-color);
+  }
+  .p-inputtext.ng-dirty.ng-invalid {
+    border-color: #e24c4c !important;
+  }
+
+  .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {
+    border-color: var(--primary-color);
+  }
+
+  .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-focus {
+    border-color: var(--primary-color);
+    box-shadow: none;
+  }
+
+  .p-button {
+    background-color: var(--primary-color) !important;
+    border: 1px solid rgba(255, 255, 255, 0.582) !important;
+  }
+}

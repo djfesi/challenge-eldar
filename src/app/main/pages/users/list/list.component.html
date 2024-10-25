@@ -1,0 +1,73 @@
+<p-card>
+  <p-table
+    [value]="users"
+    [loading]="loading"
+    [tableStyle]="{ 'min-width': '50rem' }"
+  >
+    <ng-template pTemplate="caption">
+      Usuarios
+      <div class="col-12 md:col-6 flex p-0 m-0 mt-1">
+        <p-iconField iconPosition="left" class="w-full relative">
+          <p-inputIcon styleClass="pi pi-search" />
+          <input
+            class="w-full"
+            type="text"
+            pInputText
+            id="searchInput"
+            placeholder="Buscar por datos del usuario"
+            (input)="onSearch($event)"
+          />
+        </p-iconField>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th>Nombre</th>
+        <th class="text-center">Correo electrónico</th>
+        <th class="text-center">Compañia</th>
+        <th class="text-center">Acciones</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="loadingbody">
+      @for (_ of [].constructor(4); track _; let index = $index) {
+      <tr style="height: 46px">
+        @for (cols of [].constructor(4); track cols; let columns = $index) {
+        <td><p-skeleton styleClass="w-full" /></td>
+        }
+      </tr>
+      }
+    </ng-template>
+    <ng-template pTemplate="body" let-user let-columns="columns">
+      <tr>
+        <td class="truncated font-semibold">
+          {{ user.name }}, {{ user.username }}
+        </td>
+        <td class="text-center">
+          {{ user.email }}
+        </td>
+        <td class="text-center">
+          {{ user?.company?.name ?? "-" }}
+        </td>
+        <td class="text-center">
+          <i
+            class="pi pi-eye cursor-pointer m-1"
+            (click)="onDetailUser(user.id)"
+          ></i>
+          @if(userRole === 'admin'){
+          <i
+            class="pi pi-trash cursor-pointer m-1"
+            (click)="onDeleteUser(user.id)"
+          ></i>
+          }
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="4">
+          <shared-data-not-found label="resultados" />
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-card>

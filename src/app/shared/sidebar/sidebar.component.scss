@@ -1,0 +1,39 @@
+.layout-menu-container {
+  overflow: auto;
+  flex: 1;
+  height: 100%;
+  padding: 1rem 1.5rem;
+}
+
+.layout-menu {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.truncated {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70px;
+}
+
+.min-logo {
+  left: 15px;
+  bottom: 60px;
+}
+
+:host ::ng-deep {
+  .btn-theme {
+    background-color: transparent !important;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .layout-menu-container {
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+}

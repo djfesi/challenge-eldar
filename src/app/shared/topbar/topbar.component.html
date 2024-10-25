@@ -1,0 +1,37 @@
+@if(!isMobile){
+<header class="layout-topbar">
+  <div class="topbar-profile">
+    <img
+      [draggable]="false"
+      src="assets/logos/logo.png"
+      class="logo cursor-pointer"
+      (click)="redirect()"
+    />
+    <shared-topbar-profile class="profile" />
+  </div>
+</header>
+}@else{
+<p-menubar [model]="menuOptions" class="relative">
+  <ng-template pTemplate="start">
+    <img
+      [draggable]="false"
+      src="assets/logos/logo.png"
+      class="logo absolute cursor-pointer"
+      (click)="redirect()"
+    />
+  </ng-template>
+  <ng-template pTemplate="end">
+    <div class="flex align-items-center gap-2">
+      <shared-topbar-profile class="profile mr-3" />
+    </div>
+  </ng-template>
+  <ng-template pTemplate="item" let-item>
+    <ng-container>
+      <a [routerLink]="item.route" class="p-menuitem-link">
+        <span [class]="item.icon"></span>
+        <span class="ml-2">{{ item.label }}</span>
+      </a>
+    </ng-container>
+  </ng-template>
+</p-menubar>
+}

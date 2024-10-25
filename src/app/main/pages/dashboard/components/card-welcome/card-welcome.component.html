@@ -1,0 +1,10 @@
+<div *ngIf="userRole$ | async as role">
+  <p-card class="p-x-2">
+    <h2 class="text-color">
+      Bienvenido {{ role === "admin" ? "Administrador" : "Usuario" }}
+    </h2>
+    <p class="text-color">
+      {{ setRoleMessage(role) }}
+    </p>
+  </p-card>
+</div>
