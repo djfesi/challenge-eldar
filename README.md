@@ -14,6 +14,7 @@ Este proyecto es una **aplicación web de autenticación con manejo de roles** p
 - [🛠️ Requisitos](#️-requisitos)
 - [🚀 Instalación](#-instalación)
 - [💻 Uso y Ejecución](#-uso-y-ejecución)
+- [💻 Compilar Imagen Docker](#-docker)
 - [🧑‍💻 Datos de Usuarios de Prueba](#-usuarios)
 - [🔄 Estado Global con NgRx](#-estado-global-con-ngrx)
 - [🖥️ Tecnología Utilizada](#️-tecnología-utilizada)
@@ -85,6 +86,21 @@ O también:
 ng serve
 ```
 Y abre [http://localhost:4200](http://localhost:4200) en tu navegador para ver la aplicación.
+
+## 💻 **Compilar Imagen Docker**
+
+### Compilar y levantar imagen en docker:
+
+```bash
+docker build -t challenge .
+```
+
+Correr la imagen:
+```bash
+docker run -p 4200:4200 challenge
+```
+
+Una vez que este corriendo abrir: [http://localhost:4200](http://localhost:4200) en tu navegador para ver la aplicación.
 
 ## 🧑‍💻 **Datos de Usuarios de Prueba**
 
